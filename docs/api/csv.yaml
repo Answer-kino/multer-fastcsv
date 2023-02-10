@@ -1,0 +1,26 @@
+post:
+  tags:
+    - CSV
+  summary: CSV Example
+  requestBody:
+    description: "CSV API"
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            capitalCsv:
+              type: string
+              description: "CSV 파일"
+              format: binary
+              required: true
+  responses:
+    "200":
+      $ref: "../swagger.yaml#/components/responses/SuccessOnlyResponse"
+    "204":
+      $ref: "../swagger.yaml#/components/responses/NoContentResponse"
+    "400":
+      $ref: "../swagger.yaml#/components/responses/BadRequestResponse"
+    "5XX":
+      $ref: "../swagger.yaml#/components/responses/ErrorResponse"
